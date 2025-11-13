@@ -26,6 +26,11 @@ router.get('/services', function(req, res, next) {
   res.render('index', { title: 'Services' });
 });
 
+/* GET Marketplace/Projects page. */
+router.get('/projects', function(req, res, next) {
+  res.render('projects', { title: 'Marketplace', listings: [], selectedCategory: '', searchQuery: '' });
+});
+
 /* GET home page. */
 router.get('/contact', function(req, res, next) {
   res.render('index', { title: 'Contact us' });

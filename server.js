@@ -7,6 +7,14 @@
 var app = require('./app');
 var debug = require('debug')('webproject:server');
 var http = require('http');
+var mongoose = require('mongoose');
+
+/**
+ * MongoDB Connection
+ */
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/campusmarketplace')
+.then(() => console.log('MongoDB connected'))
+.catch(err => console.log('MongoDB connection error:', err));
 
 /**
  * Get port from environment and store in Express.

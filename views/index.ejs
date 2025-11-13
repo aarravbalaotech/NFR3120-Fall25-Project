@@ -1,5 +1,22 @@
-<%- include ./partials/header.ejs %>
-<%- include ./partials/main_nav.ejs %>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %> page</p>
-<%- include ./partials/footer.ejs %>
+<%- include('partials/header') %>
+<%- include('partials/main_nav') %>
+<main>
+  <!-- Hero Section -->
+  <div class="p-5 text-center bg-image" style="background: linear-gradient(135deg,#4facfe 0%,#00f2fe 100%);height:300px;">
+    <div class="d-flex justify-content-center align-items-center h-100">
+      <div class="text-white">
+        <img src="/Asset/images/CampusConnectLogo.png" alt="Site Logo" height="100">
+        <h1 class="mb-3 display-3 fw-bold">Campus Marketplace</h1>
+        <p class="display-6">Student Hub for Buy/Sell, Tutoring, Events</p>
+        <a href="/projects" class="btn btn-warning btn-lg m-3">Create Listing</a>
+        <a href="/events" class="btn btn-info btn-lg m-3">View Events</a>
+      </div>
+    </div>
+  </div>
+  <!-- Welcome/Guide -->
+  <div class="container my-5">
+    <h2>Welcome to the Campus Marketplace!</h2>
+    <p>Connect, trade, learn, and participate in campus life. Use the navigation above to explore listings, find help, or attend events.</p>
+  </div>
+</main>
+<%- include('partials/footer') %>
