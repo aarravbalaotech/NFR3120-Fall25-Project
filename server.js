@@ -20,7 +20,7 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/campusmar
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '5000');
+var port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
 /**
@@ -51,8 +51,7 @@ function normalizePort(val) {
 
   if (port >= 0) {
     // port number
-    return port;
-  }
+    return port  }
 
   return false;
 }

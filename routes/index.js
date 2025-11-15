@@ -36,3 +36,6 @@ router.get('/contact', function(req, res, next) {
   res.render('index', { title: 'Contact us' });
 });
 module.exports = router;
+router.get('/about', function(req, res) {
+  res.render('about');
+});
