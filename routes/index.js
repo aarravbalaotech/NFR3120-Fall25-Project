@@ -31,10 +31,6 @@ router.get('/events', function(req, res, next) {
   res.render('index', { title: 'Events' });
 });
 
-/* GET Marketplace/listings page. */
-router.get('/listings', function(req, res, next) {
-  res.render('listings', { title: 'Marketplace', listings: [], selectedCategory: '', searchQuery: '' });
-});
 
 /* GET Contact page. */
 router.get('/contactme', function(req, res, next) {
