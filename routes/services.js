@@ -1,24 +1,57 @@
 const express = require('express');
 const router = express.Router();
+const Service = require('../server/models/Service');
+const multer = require('multer');
+const upload = multer({ dest: 'public/uploads/' });
 
-// Sample data — replace with your DB/models as needed
-const sampleServices = [
-  { title: 'Consulting', description: 'Technical and strategic consulting.', cta: { href: '/contact', text: 'Contact Us' } },
-  { title: 'Training', description: 'Hands-on training and workshops.', cta: { href: '/contact', text: 'Book Training' } },
-  { title: 'Support', description: 'Ongoing support and maintenance.' }
-];
-
-// Note: we mount this router at '/services' in app.js, so use '/' here
-router.get('/services', (req, res) => {
-  res.render('services', { services: sampleServices });
+/* GET all services with optional filter/search */
+router.get('/', async (req, res, next) => {
+  try {
+    const filter = {};
+    if (req.query.category) filter.category = req.query.category;
+    if (req.query.search) filter.title = { $regex: req.query.search, $options: 'i' };
+    const services = await Service.find(filter).sort({ createdAt: -1 });
+    res.render('services', { title: 'Campus Services', services: services });
+  } catch (err) {
+    next(err);
+  }
 });
 
-// Optional: single-service detail route (example)
-// router.get('/:id', (req, res) => {
-//   const id = req.params.id;
-//   const service = sampleServices[id - 1]; // adapt lookup to real DB
-//   if (!service) return res.status(404).render('error', { message: 'Service not found' });
-//   res.render('service-detail', { service });
+/* GET offer service form */
+router.get('/offer', (req, res) => {
+  res.render('offer-service', { title: 'Offer a Service' });
+});
+
+/* POST create new service */
+router.post('/offer', upload.single('image'), async (req, res, next) => {
+  try {
+    const serviceData = req.body;
+    if (req.file) {
+      serviceData.image = '/uploads/' + req.file.filename;
+    }
+    const service = new Service(serviceData);
+    await service.save();
+    res.redirect('/services');
+  } catch (err) {
+    res.status(400).render('offer-service', {
+      title: 'Offer a Service',
+      error: 'Please fill in all required fields.'
+    });
+  }
+});
+
+/* GET single service */
+router.get('/:id', async (req, res, next) => {
+  try {
+    const service = await Service.findById(req.params.id);
+    if (!service) return res.status(404).render('error', { message: 'Service not found.' });
+    res.render('service-detail', { title: service.title, service: service });
+  } catch (err) {
+    next(err);
+  }
+});
+
+module.exports = router;
 // });
 
 module.exports = router;

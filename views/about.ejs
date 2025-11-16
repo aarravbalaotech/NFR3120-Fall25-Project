@@ -1,44 +1,96 @@
 <%- include('partials/header') %>
 <%- include('partials/main_nav') %>
 
-<div class="about-container">
-  <h1>About Campus MarketPlace</h1>
+<main class="about-main">
+  <section class="about-hero">
+    <img src="/Asset/images/CampusConnectLogo.png" alt="Campus Connect Logo" class="about-logo">
+    <h1>About Campus Connect</h1>
+    <p class="mission">A student-first marketplace that helps students buy, sell, share services, and attend campus events  all in one trusted community.</p>
+  </section>
 
-  <p>
-    Campus MarketPlace is a student-focused platform that makes it easier for students
-    at Ontario Tech to buy, sell, or trade items safely on campus.
-  </p>
+  <section class="team-section container">
+    <h2 class="section-title">Meet Our Team</h2>
+    <p class="lead center">We’re a small team of students and volunteers building tools that make campus life easier.</p>
 
-  <h2>Our Mission</h2>
-  <p>
-    Our goal is to create a trusted, student-driven community where unused items can
-    find new owners. This helps students save money, reduce waste, and support each
-    other.
-  </p>
+    <div class="team-grid">
+      <article class="team-card">
+        <div class="avatar avatar-a">AB</div>
+        <div class="team-info">
+          <h3>Aarrav Bala</h3>
+          <p class="role">Team Lead • Full-Stack Developer</p>
+          <ul class="responsibilities">
+            <li>Project architecture and backend</li>
+            <li>Database schema and APIs</li>
+            <li>Integrations & deployment</li>
+          </ul>
+          <div class="socials">
+            <a href="#" aria-label="Aarrav GitHub" class="social"><i class="fa fa-github"></i></a>
+            <a href="mailto:aarrav@example.com" aria-label="Email"><i class="fa fa-envelope"></i></a>
+          </div>
+        </div>
+      </article>
 
-  <h2>Meet the Team</h2>
-  <div class="team-grid">
-      
-    <div class="team-member">
-      <img src="/Asset/images/CampusConnectLogo.png" alt="Team Member">
-      <h3>Aarrav Bala</h3>
-      <p>Team Lead</p>
-    </div>
-    
-    <div class="team-member">
-      <img src="/Asset/images/CampusConnectLogo.png" alt="Team Member">
-      <h3>Harrison Okpara</h3>
-      <p>About Page </p>
-    </div>
+      <article class="team-card">
+        <div class="avatar avatar-b">HO</div>
+        <div class="team-info">
+          <h3>Harrison Okpara</h3>
+          <p class="role">UI/UX • Frontend</p>
+          <ul class="responsibilities">
+            <li>Page and component design</li>
+            <li>Accessibility and responsiveness</li>
+            <li>Design system and styling</li>
+          </ul>
+          <div class="socials">
+            <a href="#" aria-label="Harrison GitHub" class="social"><i class="fa fa-github"></i></a>
+            <a href="mailto:harrison@example.com" aria-label="Email"><i class="fa fa-envelope"></i></a>
+          </div>
+        </div>
+      </article>
 
-    
+      <article class="team-card">
+        <div class="avatar avatar-c">RS</div>
+        <div class="team-info">
+          <h3>Rajveer Singh</h3>
+          <p class="role">CSS • Services</p>
+          <ul class="responsibilities">
+            <li>Styling and responsive grids</li>
+            <li>Services & events UI</li>
+            <li>Performance optimizations</li>
+          </ul>
+          
+</main>
 
-    <div class="team-member">
-      <img src="/Asset/images/CampusConnectLogo.png" alt="Team Member">
-      <h3>Rajveer Singh</h3>
-      <p>CSS and Services </p>
-    </div>
-  </div>
-</div>
+<style>
+/* About page styles  integrated it here for simplicity sake*/
+.about-main { padding: 2rem 1rem 4rem; background: #f8fafc; min-height: 100vh; }
+.about-hero { text-align: center; padding: 2rem 0 3rem; }
+.about-logo { height: 100px; margin-bottom: 1rem; }
+.about-hero h1 { font-size: 2.25rem; margin: .25rem 0; }
+.mission { max-width: 780px; margin: 0.5rem auto 0; font-size: 1.125rem; color:#374151; }
+
+.team-section { max-width: 1100px; margin: 2rem auto; padding: 1rem; }
+.section-title { font-size: 1.5rem; margin-bottom: 0.5rem; }
+.lead.center { text-align: center; color:#4b5563; margin-bottom: 1.5rem; }
+
+.team-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+.team-card { display:flex; gap:1rem; align-items:flex-start; background:#fff; padding:1rem; border-radius:12px; box-shadow:0 8px 24px rgba(16,24,40,0.06); }
+.avatar { flex:0 0 72px; height:72px; width:72px; border-radius:999px; display:flex; align-items:center; justify-content:center; font-weight:700; color:#fff; font-size:1.25rem; }
+.avatar-a { background: linear-gradient(135deg,#7c3aed,#06b6d4); }
+.avatar-b { background: linear-gradient(135deg,#f97316,#f43f5e); }
+.avatar-c { background: linear-gradient(135deg,#06b6d4,#0ea5a4); }
+.avatar-d { background: linear-gradient(135deg,#ef4444,#f97316); }
+.team-info h3 { margin:0; font-size:1.05rem; }
+.team-info .role { color:#6b7280; margin: .25rem 0 0.6rem; }
+.responsibilities { margin:0; padding-left:1rem; color:#374151; }
+.responsibilities li { margin-bottom:0.25rem; }
+.socials { margin-top:0.6rem; }
+.social { margin-right:0.6rem; color:#374151; text-decoration:none; font-size:1.05rem; }
+.social:hover { color:#111827; }
+
+@media (max-width: 768px) {
+  .team-grid { grid-template-columns: 1fr; }
+  .about-hero h1 { font-size: 1.75rem; }
+}
+</style>
 
 <%- include('partials/footer') %>
