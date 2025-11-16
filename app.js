@@ -10,6 +10,7 @@ var listingsRouter = require('./routes/listings');
 const servicesRouter = require('./routes/services');
 const eventsRouter = require('./routes/events');
 
+
 var app = express();
 
 // view engine setup
@@ -25,7 +26,7 @@ app.use(express.static(path.join(__dirname, 'node_modules')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/listings', listingsRouter);
-app.use('/services', servicesRouter);
+app.use('/services', servicesRouter); // correct pairing
 app.use('/events', eventsRouter);
 
 // catch 404 and forward to error handler
