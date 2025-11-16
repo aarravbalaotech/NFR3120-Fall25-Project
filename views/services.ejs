@@ -1,0 +1,31 @@
+<%- include('partials/header') %>
+
+<section class="container py-5">
+  <h1 class="mb-4">Services</h1>
+
+  <div class="row">
+    <% if (!services || services.length === 0) { %>
+      <div class="col-12">
+        <p>No services available right now.</p>
+      </div>
+    <% } else { %>
+      <% services.forEach(function(service) { %>
+        <div class="col-md-4 mb-4">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title"><%= service.title %></h5>
+              <p class="card-text"><%= service.description %></p>
+            </div>
+            <% if (service.cta) { %>
+              <div class="card-footer">
+                <a href="<%= service.cta.href %>" class="btn btn-primary"><%= service.cta.text %></a>
+              </div>
+            <% } %>
+          </div>
+        </div>
+      <% }) %>
+    <% } %>
+  </div>
+</section>
+
+<%- include('partials/footer') %>
