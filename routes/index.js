@@ -13,7 +13,7 @@ router.get('/home', function(req, res, next) {
 
 /* GET About page. */
 router.get('/about', function(req, res, next) {
-  res.render('index', { title: 'About us' });
+  res.render('about', { title: 'About us' });
 });
 
 /* GET products page. */
@@ -26,16 +26,19 @@ router.get('/services', function(req, res, next) {
   res.render('index', { title: 'Services' });
 });
 
-/* GET Marketplace/Projects page. */
-router.get('/projects', function(req, res, next) {
-  res.render('projects', { title: 'Marketplace', listings: [], selectedCategory: '', searchQuery: '' });
+/* GET Events page. */
+router.get('/events', function(req, res, next) {
+  res.render('index', { title: 'Events' });
 });
 
-/* GET home page. */
-router.get('/contact', function(req, res, next) {
+/* GET Marketplace/listings page. */
+router.get('/listings', function(req, res, next) {
+  res.render('listings', { title: 'Marketplace', listings: [], selectedCategory: '', searchQuery: '' });
+});
+
+/* GET Contact page. */
+router.get('/contactme', function(req, res, next) {
   res.render('index', { title: 'Contact us' });
 });
+
 module.exports = router;
-router.get('/about', function(req, res) {
-  res.render('about');
-});

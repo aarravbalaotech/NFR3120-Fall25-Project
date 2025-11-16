@@ -12,7 +12,11 @@ var mongoose = require('mongoose');
 /**
  * MongoDB Connection
  */
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/campusmarketplace')
+const mongoURI = process.env.MONGODB_URI || 'mongodb+srv://aarravb:CCbaba26@cluster0.zqesbud.mongodb.net/campusmarketplace?retryWrites=true&w=majority&serverSelectionTimeoutMS=5000';
+mongoose.connect(mongoURI, {
+  serverSelectionTimeoutMS: 5000,
+  socketTimeoutMS: 45000,
+})
 .then(() => console.log('MongoDB connected'))
 .catch(err => console.log('MongoDB connection error:', err));
 

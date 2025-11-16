@@ -30,8 +30,8 @@
         <% listings.forEach(listing => { %>
           <div class="col-md-4 mb-4">
             <div class="card h-100">
-              <% if (listing.photo) { %>
-                <img src="<%= listing.photo %>" class="card-img-top" alt="<%= listing.title %>" style="height: 200px; object-fit: cover;">
+              <% if (listing.image) { %>
+                <img src="<%= listing.image %>" class="card-img-top" alt="<%= listing.title %>" style="height: 200px; object-fit: cover;">
               <% } else { %>
                 <div class="card-img-top bg-secondary d-flex align-items-center justify-content-center" style="height: 200px;">
                   <span class="text-white">No Image</span>
