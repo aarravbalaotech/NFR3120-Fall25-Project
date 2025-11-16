@@ -71,9 +71,14 @@ router.post('/', async function(req, res, next) {
     await listing.save();
     res.redirect('/listings');
   } catch (err) {
+    let errorMsg = 'Please fill in all required fields.';
+    // If it's not a validation error, show the actual error
+    if (!err.name || err.name !== 'ValidationError') {
+      errorMsg = err.message;
+    }
     res.status(400).render('create-listing', {
       title: 'Create New Listing',
-      error: err.message
+      error: errorMsg
     });
   }
 });
