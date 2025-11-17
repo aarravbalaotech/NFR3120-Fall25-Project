@@ -6,8 +6,8 @@
     <div class="d-flex justify-content-center align-items-center h-100">
       <div class="text-white">
         <img src="/Asset/images/CampusConnectLogo.png" alt="Site Logo" height="100">
-        <h1 class="mb-3 display-3 fw-bold">Campus Marketplace</h1>
-        <p class="display-6">Student Hub for Buy/Sell, Tutoring, Events</p>
+        <h1 class="mb-3 display-3 fw-bold">Campus Connect</h1>
+        <p class="display-6">Student Hub for Buy/Sell, Services, Events</p>
         <a href="/listings" class="btn btn-warning btn-lg m-3">Create Listing</a>
         <a href="/events" class="btn btn-info btn-lg m-3">View Events</a>
       </div>
@@ -21,7 +21,7 @@
       <% if (listings && listings.length) { %>
         <% listings.forEach(function(item) { %>
           <div class="card-item">
-            <div class="card-image" style="background-image:url(<%= item.image || '/Asset/images/placeholder.jpg' %>)"></div>
+            <div class="card-image" "></div>
             <div class="card-body">
               <div class="card-tags">
                 <span class="pill"><%= item.category %></span>
@@ -57,7 +57,7 @@
               </div>
               <h3 class="card-title"><%= ev.title %></h3>
               <p class="card-desc"><%= ev.description.substring(0, 120) %>...</p>
-              <p class="card-meta"><span>📅 <%= new Date(ev.date).toLocaleDateString() %></span> • <span>⏰ <%= ev.time %></span> • <span>📍 <%= ev.location %></span></p>
+              <p class="card-meta"><span> <%= new Date(ev.date).toLocaleDateString() %></span> • <span> <%= ev.time %></span> • <span> <%= ev.location %></span></p>
               <div class="card-actions">
                 <a href="/events" class="btn btn-cta btn-sm">View Details</a>
               </div>
