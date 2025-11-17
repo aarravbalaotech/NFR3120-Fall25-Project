@@ -90,14 +90,14 @@ Primary Responsibilities
 Aarrav
 • Project Lead & Coordinator
 • Landing/Home Page grid view and Nav bar setp  (HTML, CSS, JavaScript)
-• Events Calendar Page (CRUD implementation)
+• Events  Page (CRUD implementation)
 • Services Page (CRUD implementation)
 • Demo video creation and editing
 • GitHub repository setup and management
-
+Marketplace Page (full CRUD implementation)
 
 Raj
-• Marketplace Page (full CRUD implementation)
+• 
 • Product listing cards/grid layout
 • Database structure and backend logic for products
 • Search and filter functionality
