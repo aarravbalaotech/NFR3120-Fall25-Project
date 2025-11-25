@@ -1,0 +1,11 @@
+node_modules/
+.env
+.env.local
+.env.*.local
+.DS_Store
+npm-debug.log
+dist/
+.vscode/
+package-lock.json
+public/uploads/
+*.log
