@@ -4,6 +4,9 @@ const Service = require('../model/Service');
 const multer = require('multer');
 const upload = multer({ dest: 'public/uploads/' });
 
+// 🔒 Harrison Task: Import auth middleware
+const requireAuth = require('../middleware/requireAuth');
+
 /* GET all services with optional filter/search */
 router.get('/', async (req, res, next) => {
   try {
@@ -17,13 +20,13 @@ router.get('/', async (req, res, next) => {
   }
 });
 
-/* GET offer service form */
-router.get('/offer', (req, res) => {
+/* GET offer service form (🔒 Protected) */
+router.get('/offer', requireAuth, (req, res) => {
   res.render('offer-service', { title: 'Offer a Service' });
 });
 
-/* POST create new service */
-router.post('/offer', upload.single('image'), async (req, res, next) => {
+/* POST create new service (🔒 Protected) */
+router.post('/offer', requireAuth, upload.single('image'), async (req, res, next) => {
   try {
     const serviceData = req.body;
     if (req.file) {
@@ -37,6 +40,7 @@ router.post('/offer', upload.single('image'), async (req, res, next) => {
       title: 'Offer a Service',
       error: 'Please fill in all required fields.'
     });
+    console.error(err);
   }
 });
 
@@ -50,8 +54,5 @@ router.get('/:id', async (req, res, next) => {
     next(err);
   }
 });
-
-module.exports = router;
-// });
 
 module.exports = router;

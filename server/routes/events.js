@@ -2,7 +2,10 @@ var express = require('express');
 var router = express.Router();
 const Event = require('../model/Event');
 
-/* GET events page. */
+// 🔒 Harrison Task: add route protection middleware
+const requireAuth = require('../middleware/requireAuth');
+
+/* GET all events page. (Public) */
 router.get('/', function(req, res, next) {
   Event.find({})
     .then(events => {
@@ -11,13 +14,13 @@ router.get('/', function(req, res, next) {
     .catch(err => next(err));
 });
 
-/* GET offer event form. */
-router.get('/offer', function(req, res, next) {
+/* GET offer event form (🔒 Protected) */
+router.get('/offer', requireAuth, function(req, res, next) {
   res.render('offer-event', { title: 'Create Event' });
 });
 
-/* POST create event. */
-router.post('/offer', function(req, res, next) {
+/* POST create event (🔒 Protected) */
+router.post('/offer', requireAuth, function(req, res, next) {
   const { title, description, date, time, location, category, contact, organizerName } = req.body;
 
   if (!title || !description || !date || !time || !location || !category || !contact || !organizerName) {
